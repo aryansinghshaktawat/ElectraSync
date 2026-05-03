@@ -14,6 +14,7 @@ export default function EVMSimulator() {
   const [isFlashing, setIsFlashing] = useState(false);
   const [showReceipt, setShowReceipt] = useState(false);
   const [transactionId, setTransactionId] = useState<string>("");
+  const [showVvpatMsg, setShowVvpatMsg] = useState(false);
 
   const selectedCandidate = useMemo(() => {
     return candidates.find((c) => c.id === selectedCandidateId);
@@ -23,6 +24,11 @@ export default function EVMSimulator() {
     setSelectedCandidateId(candidateId);
     setIsFlashing(true);
     setTransactionId(Math.random().toString(36).substring(2, 10).toUpperCase());
+    setShowVvpatMsg(true);
+
+    setTimeout(() => {
+      setShowVvpatMsg(false);
+    }, 3000);
     
     // Simulate Beep sound effect
     if (typeof window !== 'undefined') {
@@ -56,7 +62,6 @@ export default function EVMSimulator() {
 
   return (
     <div className="p-6 bg-gray-900/60 border border-gray-800 rounded-xl shadow-lg relative overflow-hidden">
-      <h3 className="text-lg font-semibold text-cyan-100 mb-4">Step 2: Polling Booth (EVM Simulator)</h3>
       
       <div className="space-y-3">
         {candidates.map((c) => (
@@ -87,6 +92,21 @@ export default function EVMSimulator() {
             className="absolute inset-0 bg-red-500/20 pointer-events-none"
             data-testid="flash-effect"
           />
+        )}
+      </AnimatePresence>
+
+      {/* VVPAT Slip Popup */}
+      <AnimatePresence>
+        {showVvpatMsg && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-green-500/90 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg z-20 backdrop-blur-sm"
+            data-testid="vvpat-popup"
+          >
+            VVPAT Slip: Vote Recorded
+          </motion.div>
         )}
       </AnimatePresence>
 

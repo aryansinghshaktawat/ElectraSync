@@ -22,9 +22,6 @@ export default function RegistrationCheck() {
 
   return (
     <div className="p-6 bg-gray-900/60 border border-gray-800 rounded-xl shadow-lg space-y-4">
-      <h3 className="text-lg font-semibold text-cyan-100">Step 1: Registration Check</h3>
-      <p className="text-sm text-gray-400">Enter a dummy Voter ID to verify registration status.</p>
-      
       <div className="flex items-center space-x-3">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />

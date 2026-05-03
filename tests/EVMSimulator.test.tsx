@@ -40,9 +40,9 @@ describe('EVMSimulator', () => {
       jest.advanceTimersByTime(600);
     });
 
-    // Flash effect should disappear and receipt should show
+    // Receipt should show and VVPAT popup should be visible
     await waitFor(() => {
-      expect(screen.queryByTestId('flash-effect')).not.toBeInTheDocument();
+      expect(screen.getByTestId('vvpat-popup')).toBeInTheDocument();
       const receipt = screen.getByTestId('receipt-modal');
       expect(receipt).toBeInTheDocument();
       expect(receipt).toHaveTextContent('Candidate A');
