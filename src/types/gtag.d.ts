@@ -1,4 +1,4 @@
 interface Window {
-  gtag: (command: 'config' | 'set' | 'event', targetId: string, config?: Record<string, any>) => void;
-  dataLayer: any[];
+  gtag: (command: 'config' | 'set' | 'event', targetId: string, config?: Record<string, unknown>) => void;
+  dataLayer: unknown[];
 }

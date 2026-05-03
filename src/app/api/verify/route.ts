@@ -42,7 +42,7 @@ export async function POST(request: Request) {
       verified: isVerified
     });
 
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       { error: "Internal Server Error during verification processing." },
       { status: 500 }
