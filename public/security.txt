@@ -1,0 +1,6 @@
+Contact: security@electrasync.local
+Expires: 2027-01-01T00:00:00.000Z
+Preferred-Languages: en
+Acknowledgments: https://electrasync.local/security/hall-of-fame
+Policy: https://electrasync.local/security-policy
+Hiring: https://electrasync.local/jobs
